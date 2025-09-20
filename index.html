@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajashekar & Akhila Wedding Invitation</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Playfair Display', serif; background: #fffaf2; color: #333; scroll-behavior: smooth; }
+
+    /* Hero Section */
+    header {
+      height: 100vh;
+      background: url('./images/couple-bg.jpg') center center no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;       
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      padding-top: 60vh;
+    }
+
+    header::after {
+      content: ""; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    header > * { position: relative; z-index: 1; }
+
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;                     
+      color: #fff8f0;                        
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.3); 
+      letter-spacing: 1px;                   
+      line-height: 1.2;
+      animation: fadeDown 2s ease-in-out;
+    }
+    header h1 span.amp { color: #fff8f0; font-size: 1.1em; }
+
+    .hero-text { text-align: center; margin-top: 10px; }
+    .hero-text p { font-size: 1.3rem; margin-top: 10px; color: #fff8f0; }
+
+    .btn-story {
+      margin-top: 20px;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      background: #b71c1c;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-story:hover { background: #800000; }
+
+    section { padding: 80px 10%; }
+
+    section h2 {
+      text-align: center;
+      color: #b71c1c;
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 30px;
+    }
+
+    /* Temple Backdrop Section */
+    .temple-backdrop {
+      background: url('images/temple-backdrop.png') center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    .temple-backdrop::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.65); /* clearer overlay */
+      z-index: -1;
+    }
+
+    /* Events Section */
+    .events-horizontal {
+      display:flex; 
+      justify-content:center; 
+      gap:40px; 
+      flex-wrap:wrap;
+    }
+    .event-card {
+      background: rgba(255,255,255,0.85); 
+      border-radius: 20px; 
+      padding: 30px; 
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      width: 300px;
+      backdrop-filter: blur(3px);
+    }
+    .event-card h3 {
+      color: #b71c1c; 
+      margin-bottom: 15px; 
+      font-size: 2rem;
+    }
+    .event-card p {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.2rem; 
+      font-weight: bold; 
+      margin: 8px 0;
+      color: #333;
+    }
+
+    /* Venue Section */
+    .venue { text-align: center; }
+    .venue img {
+      width: 100%; max-width: 600px; border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin: 20px 0;
+    }
+
+    /* Couple Section */
+    .couple {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: -80px;
+      position: relative;
+      z-index: 2;
+    }
+    .person { text-align: center; }
+    .person img {
+      width: 220px; height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #b71c1c;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .person img:hover { transform: scale(1.05); }
+    .person h3 {
+      margin-top: 15px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #b71c1c;
+    }
+
+    /* Divider */
+    .divider { text-align: center; margin: 60px 0; }
+    .divider img { width: 200px; opacity: 0.7; }
+
+    /* Our Story Section */
+    #our-story { text-align: center; }
+    #our-story img {
+      width: 100%; max-width: 500px; border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-bottom: 20px;
+    }
+    #our-story p { font-size: 1.2rem; line-height: 1.8; max-width: 700px; margin: auto; color: #333; background: rgba(255,255,255,0.6); padding: 20px; border-radius: 15px;}
+
+    /* Family Welcome Section */
+    #family-welcome { text-align:center; padding:60px 10%; background: transparent; }
+    #family-welcome img {
+      width: 100%; max-width:1200px; border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Invitation E-Card Section */
+    #invitation-card { text-align:center; }
+    #invitation-card img {
+      width: 100%; max-width:800px; border-radius:20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Gallery Section */
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;
+    }
+    .gallery img {
+      width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* Contact */
+    footer {
+      background: #b71c1c; 
+      color: #fff; 
+      text-align: center; 
+      padding: 50px 20px;
+    }
+    footer h3 {
+      font-size: 2.2rem; 
+      font-weight: bold; 
+      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+    }
+    footer .contact {
+      font-family: 'Times New Roman', serif; 
+      font-size: 1.3rem;                      
+      font-weight: bold;                      
+      margin: 10px 0;
+    }
+
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .hero-text p { font-size: 1.1rem; }
+      .couple img { width: 180px; height: 180px; }
+      .couple h3 { font-size: 1.7rem; }
+      .event-card { width: 90%; margin: auto; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Rajashekar <span class="amp">&</span> Akhila</h1>
+    <div class="hero-text">
+      <p>Two souls, one heart & a lifetime of love</p>
+      <p style="font-size: 1.2rem; margin-top: 10px;">5th October 2025</p>
+      <button class="btn-story" onclick="document.getElementById('our-story').scrollIntoView({ behavior: 'smooth' });">View Our Story</button>
+    </div>
+  </header>
+
+  <!-- Temple Backdrop Wrapper Starts -->
+  <div class="temple-backdrop">
+
+    <!-- Our Story Section -->
+    <section id="our-story">
+      <h2>Our Story</h2>
+      <img src="images/our-story.jpg" alt="Our Story Photo">
+      <p>
+        Two hearts, destined to meet
+        brought together by families,<br>
+        united by respect, dreams, and love.
+        Today begins their journey of forever.
+      </p>
+    </section>
+
+    <!-- Wedding Events Section -->
+    <section id="events">
+      <h2>Wedding Events</h2>
+      <div class="events-horizontal">
+        <div class="event-card">
+          <h3>Haldi</h3>
+          <p>4th October 2025, 10:00 AM</p>
+          <p>At Groom's Residence</p>
+        </div>
+        <div class="event-card">
+          <h3>Wedding</h3>
+          <p>5th October 2025, 5:20 PM - 6:40 PM</p>
+          <p>Sri Janaki Rama Kalyana Mandapam, Dharmavaram</p>
+        </div>
+        <div class="event-card">
+          <h3>Reception</h3>
+          <p>7th October 2025, 11:00 AM</p>
+          <p>Sri Markandeya swamy kalyana mantapam,</p>
+          </p>opp. New KSRTC Bus stand, Ballari</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Family Welcome Section -->
+    <section id="family-welcome">
+      <h2>Avvari Family Welcomes You</h2>
+      <img src="images/family.jpg" alt="Avvari Family">
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="memories">
+      <h2>Cherished Memories</h2>
+      <div class="gallery">
+        <img src="images/gallery1.jpg" alt="Gallery Image 1">
+        <img src="images/gallery2.jpg" alt="Gallery Image 2">
+        <img src="images/gallery3.jpg" alt="Gallery Image 3">
+      </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section id="venue">
+      <h2>Venue Location</h2>
+      <div class="venue">
+        <p>
+          The ceremony will take place at the sacred and serene<br>
+          <strong>Sri Janaki Rama Kalyana Mandapam</strong> in <strong>Dharmavaram</strong>.
+        </p>
+        <br>
+        <iframe 
+          src="https://www.google.com/maps?q=Sri+Janaki+Rama+Kalyana+Mandapam+Maruthi+Nagar+Dharmavaram&output=embed" 
+          width="100%" height="300" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </section>
+  </div>
+  <!-- Temple Backdrop Wrapper Ends -->
+
+  <!-- Footer / Contact -->
+  <footer>
+    <h3>Contact Us</h3>
+    <p class="contact">📞 Ramesh: +91-9480919672</p>
+    <p class="contact">📞 Raghu: +91-9611174241</p>
+    <p class="contact">📞 Rajesh: +91-9986751237</p>
+    <p style="font-size: 1.1rem; margin-top: 20px;">Made with ❤ by Keerthi and her friends for her beloved brother</p>
+  </footer>
+
+</body>
+</html>
